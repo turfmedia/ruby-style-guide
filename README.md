@@ -1,29 +1,3 @@
-# Prelude
-
-> Role models are important. <br>
-> -- Officer Alex J. Murphy / RoboCop
-
-One thing has always bothered me as a Ruby developer&mdash;Python developers
-have a great programming style reference ([PEP-8][]) and we never got an
-official guide, documenting Ruby coding style and best practices. And I do
-believe that style matters. I also believe that a great hacker community, such
-as Ruby has, should be quite capable of producing this coveted document.
-
-This guide started its life as our internal company Ruby coding guidelines
-(written by yours truly). At some point I decided that the work I was doing
-might be interesting to members of the Ruby community in general and that the
-world had little need for another internal company guideline. But the world
-could certainly benefit from a community-driven and community-sanctioned set of
-practices, idioms and style prescriptions for Ruby programming.
-
-Since the inception of the guide I've received a lot of feedback from members of
-the exceptional Ruby community around the world. Thanks for all the suggestions
-and the support! Together we can make a resource beneficial to each and every
-Ruby developer out there.
-
-By the way, if you're into Rails you might want to check out the complementary
-[Ruby on Rails Style Guide][rails-style-guide].
-
 # The Ruby Style Guide
 
 This Ruby style guide recommends best practices so that real-world Ruby
@@ -35,46 +9,6 @@ supposed to help risks not getting used at all&mdash;no matter how good it is.
 The guide is separated into several sections of related rules. I've tried to add
 the rationale behind the rules (if it's omitted I've assumed it's pretty
 obvious).
-
-I didn't come up with all the rules out of nowhere&mdash;they are mostly
-based on my extensive career as a professional software engineer,
-feedback and suggestions from members of the Ruby community and
-various highly regarded Ruby programming resources, such as
-["Programming Ruby"][pickaxe] and
-["The Ruby Programming Language"][trpl].
-
-There are some areas in which there is no clear consensus in the Ruby community
-regarding a particular style (like string literal quoting, spacing inside hash
-literals, dot position in multi-line method chaining, etc.). In such scenarios
-all popular styles are acknowledged and it's up to you to pick one and apply it
-consistently.
-
-This style guide evolves over time as additional conventions are
-identified and past conventions are rendered obsolete by changes in
-Ruby itself.
-
-Many projects have their own coding style guidelines (often derived
-from this guide). In the event of any conflicts, such
-project-specific guides take precedence for that project.
-
-You can generate a PDF or an HTML copy of this guide using
-[Pandoc][].
-
-[RuboCop][] is a code analyzer, based on this
-style guide.
-
-Translations of the guide are available in the following languages:
-
-* [Chinese Simplified](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhCN.md)
-* [Chinese Traditional](https://github.com/JuanitoFatas/ruby-style-guide/blob/master/README-zhTW.md)
-* [French](https://github.com/gauthier-delacroix/ruby-style-guide/blob/master/README-frFR.md)
-* [German](https://github.com/arbox/de-ruby-style-guide/blob/master/README-deDE.md)
-* [Japanese](https://github.com/fortissimo1997/ruby-style-guide/blob/japanese/README.ja.md)
-* [Korean](https://github.com/dalzony/ruby-style-guide/blob/master/README-koKR.md)
-* [Portuguese](https://github.com/rubensmabueno/ruby-style-guide/blob/master/README-PT-BR.md)
-* [Russian](https://github.com/arbox/ruby-style-guide/blob/master/README-ruRU.md)
-* [Spanish](https://github.com/alemohamad/ruby-style-guide/blob/master/README-esLA.md)
-* [Vietnamese](https://github.com/CQBinh/ruby-style-guide/blob/master/README-viVN.md)
 
 ## Table of Contents
 
@@ -459,14 +393,9 @@ Translations of the guide are available in the following languages:
                 ' and second part of the long string'
   ```
 
-* <a name="consistent-multi-line-chains"></a>
-    Adopt a consistent multi-line method chaining style. There are two popular
-    styles in the Ruby community, both of which are considered
-    good&mdash;leading `.` (Option A) and trailing `.` (Option B).
+* When continuing a chained method invocation on
+  another line keep the `.` on the second line.
 <sup>[[link](#consistent-multi-line-chains)]</sup>
-
-  * **(Option A)** When continuing a chained method invocation on
-    another line keep the `.` on the second line.
 
     ```Ruby
     # bad - need to consult first line to understand second line
@@ -477,23 +406,6 @@ Translations of the guide are available in the following languages:
     one.two.three
       .four
     ```
-
-  * **(Option B)** When continuing a chained method invocation on another line,
-    include the `.` on the first line to indicate that the
-    expression continues.
-
-    ```Ruby
-    # bad - need to read ahead to the second line to know that the chain continues
-    one.two.three
-      .four
-
-    # good - it's immediately clear that the expression continues beyond the first line
-    one.two.three.
-      four
-    ```
-
-  A discussion on the merits of both alternative styles can be found
-  [here](https://github.com/bbatsov/ruby-style-guide/pull/176).
 
 * <a name="no-double-indent"></a>
     Align the parameters of a method call if they span more than one
